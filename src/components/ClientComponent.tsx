@@ -1,7 +1,6 @@
 // src/components/ClientComponent.tsx
-"use client";
-
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import Link from 'next/link';
 
 type ClientComponentProps = {
   serverMessage: string;
@@ -16,6 +15,10 @@ const ClientComponent: React.FC<ClientComponentProps> = ({ serverMessage }) => {
       <p>Server Message: {serverMessage}</p>
       <p>Count: {count}</p>
       <button onClick={() => setCount(count + 1)}>Increment</button>
+      <br />
+      <Link href={`/ssr-demo/${count}`}>
+        <a>Load SSR Demo with ID {count}</a>
+      </Link>
     </div>
   );
 };
